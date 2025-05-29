@@ -83,6 +83,9 @@ public class CoderNode implements NodeAction {
 		unexecutedStep.setExecutionRes(content);
 
 		logger.info("Coder Node result: {}", content);
+		if (content == null) {
+			content = "";
+		}
 		Map<String, Object> updated = new HashMap<>();
 		updated.put("messages", List.of(new AssistantMessage(content)));
 		observations.add(content);
